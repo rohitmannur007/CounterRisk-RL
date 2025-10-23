@@ -1,0 +1,353 @@
+INFO:__main__:Starting Counterfactual Credit Policy Simulator + RL Optimizer
+WARNING:src.data_loader:Dataset not found. Generating synthetic data.
+INFO:src.data_loader:Generated synthetic data: 1000 samples.
+INFO:src.models.uplift_model:Uplift model fitted.
+INFO:src.simulator.credit_sim:Sim results: Profit=118500.00, Default Rate=0.338, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=128500.00, Default Rate=0.328, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=141000.00, Default Rate=0.298, Feasible=True
+INFO:src.simulator.credit_sim:Sim results: Profit=134500.00, Default Rate=0.300, Feasible=True
+INFO:src.simulator.credit_sim:Sim results: Profit=123000.00, Default Rate=0.328, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=131000.00, Default Rate=0.328, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=140500.00, Default Rate=0.332, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=128500.00, Default Rate=0.322, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=123000.00, Default Rate=0.302, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=127500.00, Default Rate=0.318, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=117000.00, Default Rate=0.334, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=126000.00, Default Rate=0.324, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=132000.00, Default Rate=0.310, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=113000.00, Default Rate=0.316, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=138500.00, Default Rate=0.308, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=110500.00, Default Rate=0.352, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=125500.00, Default Rate=0.322, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=134500.00, Default Rate=0.316, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=125500.00, Default Rate=0.314, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=120000.00, Default Rate=0.314, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=72500.00, Default Rate=0.324, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=59000.00, Default Rate=0.320, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=53000.00, Default Rate=0.320, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=64500.00, Default Rate=0.338, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=54000.00, Default Rate=0.330, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=63000.00, Default Rate=0.312, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=61500.00, Default Rate=0.320, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=66000.00, Default Rate=0.344, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=71000.00, Default Rate=0.322, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=50000.00, Default Rate=0.316, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=68000.00, Default Rate=0.310, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=70500.00, Default Rate=0.322, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=68000.00, Default Rate=0.302, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=64000.00, Default Rate=0.298, Feasible=True
+INFO:src.simulator.credit_sim:Sim results: Profit=73500.00, Default Rate=0.296, Feasible=True
+INFO:src.simulator.credit_sim:Sim results: Profit=62500.00, Default Rate=0.332, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=50500.00, Default Rate=0.328, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=59500.00, Default Rate=0.334, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=58500.00, Default Rate=0.312, Feasible=False
+INFO:src.simulator.credit_sim:Sim results: Profit=60500.00, Default Rate=0.340, Feasible=False
+/Users/rohitmannur/Desktop/Amex 2/src/simulator/credit_sim.py:70: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+INFO:src.simulator.credit_sim:Backtest plot saved as policy_eval.png
+INFO:__main__:Running RL optimization loop...
+INFO:src.simulator.credit_sim:Sim results: Profit=59500.00, Default Rate=0.302, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [14. 11. 20.], Betas: [139. 176. 188.]
+INFO:__main__:Episode 1: Profit=59500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=21500.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [19. 15. 22.], Betas: [290. 366. 347.]
+INFO:__main__:Episode 2: Profit=21500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=12000.00, Default Rate=0.332, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [19. 20. 26.], Betas: [453. 530. 520.]
+INFO:__main__:Episode 3: Profit=12000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=52500.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [28. 31. 30.], Betas: [611. 716. 676.]
+INFO:__main__:Episode 4: Profit=52500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=57500.00, Default Rate=0.328, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [40. 40. 37.], Betas: [790. 900. 813.]
+INFO:__main__:Episode 5: Profit=57500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=41000.00, Default Rate=0.324, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [47. 48. 42.], Betas: [ 951. 1063.  989.]
+INFO:__main__:Episode 6: Profit=41000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=51000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [57. 54. 52.], Betas: [1135. 1223. 1145.]
+INFO:__main__:Episode 7: Profit=51000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=38500.00, Default Rate=0.324, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [63. 60. 59.], Betas: [1294. 1396. 1313.]
+INFO:__main__:Episode 8: Profit=38500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=29500.00, Default Rate=0.304, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [72. 70. 66.], Betas: [1466. 1548. 1489.]
+INFO:__main__:Episode 9: Profit=29500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=47000.00, Default Rate=0.316, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [76. 83. 72.], Betas: [1641. 1706. 1656.]
+INFO:__main__:Episode 10: Profit=47000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=82500.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [90. 97. 93.], Betas: [1811. 1860. 1832.]
+INFO:__main__:Episode 11: Profit=82500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=83000.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [105. 105. 108.], Betas: [1979. 2018. 2006.]
+INFO:__main__:Episode 12: Profit=83000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=68500.00, Default Rate=0.312, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [116. 120. 123.], Betas: [2151. 2171. 2181.]
+INFO:__main__:Episode 13: Profit=68500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=69000.00, Default Rate=0.338, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [129. 132. 136.], Betas: [2334. 2335. 2334.]
+INFO:__main__:Episode 14: Profit=69000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=69500.00, Default Rate=0.340, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [149. 139. 155.], Betas: [2524. 2485. 2494.]
+INFO:__main__:Episode 15: Profit=69500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=35000.00, Default Rate=0.322, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [162. 143. 164.], Betas: [2698. 2661. 2644.]
+INFO:__main__:Episode 16: Profit=35000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=17500.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [166. 146. 167.], Betas: [2880. 2826. 2797.]
+INFO:__main__:Episode 17: Profit=17500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=17500.00, Default Rate=0.306, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [173. 151. 175.], Betas: [3043. 2989. 2971.]
+INFO:__main__:Episode 18: Profit=17500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=15500.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [177. 159. 178.], Betas: [3194. 3163. 3146.]
+INFO:__main__:Episode 19: Profit=15500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=17000.00, Default Rate=0.338, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [182. 164. 181.], Betas: [3362. 3338. 3303.]
+INFO:__main__:Episode 20: Profit=17000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=25500.00, Default Rate=0.322, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [184. 170. 189.], Betas: [3555. 3498. 3450.]
+INFO:__main__:Episode 21: Profit=25500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=37500.00, Default Rate=0.326, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [193. 175. 196.], Betas: [3708. 3656. 3639.]
+INFO:__main__:Episode 22: Profit=37500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=28500.00, Default Rate=0.340, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [201. 176. 200.], Betas: [3874. 3819. 3810.]
+INFO:__main__:Episode 23: Profit=28500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=18500.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [204. 179. 201.], Betas: [4069. 3983. 3951.]
+INFO:__main__:Episode 24: Profit=18500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=21500.00, Default Rate=0.336, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [209. 182. 207.], Betas: [4249. 4152. 4102.]
+INFO:__main__:Episode 25: Profit=21500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=12500.00, Default Rate=0.324, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [213. 186. 209.], Betas: [4414. 4317. 4272.]
+INFO:__main__:Episode 26: Profit=12500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=12000.00, Default Rate=0.302, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [217. 190. 216.], Betas: [4570. 4494. 4439.]
+INFO:__main__:Episode 27: Profit=12000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=18500.00, Default Rate=0.304, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [221. 191. 218.], Betas: [4736. 4654. 4613.]
+INFO:__main__:Episode 28: Profit=18500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=8500.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [223. 194. 221.], Betas: [4904. 4821. 4778.]
+INFO:__main__:Episode 29: Profit=8500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=18500.00, Default Rate=0.292, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [229. 198. 227.], Betas: [5061. 4983. 4959.]
+INFO:__main__:Episode 30: Profit=18500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=15000.00, Default Rate=0.338, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [231. 198. 230.], Betas: [5226. 5157. 5120.]
+INFO:__main__:Episode 31: Profit=15000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=15000.00, Default Rate=0.314, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [233. 199. 231.], Betas: [5406. 5316. 5281.]
+INFO:__main__:Episode 32: Profit=15000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=14500.00, Default Rate=0.324, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [236. 200. 234.], Betas: [5583. 5477. 5443.]
+INFO:__main__:Episode 33: Profit=14500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=9000.00, Default Rate=0.316, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [237. 203. 237.], Betas: [5738. 5646. 5619.]
+INFO:__main__:Episode 34: Profit=9000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=18000.00, Default Rate=0.298, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [246. 211. 242.], Betas: [5875. 5823. 5805.]
+INFO:__main__:Episode 35: Profit=18000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=13500.00, Default Rate=0.328, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [250. 212. 244.], Betas: [6055. 5982. 5966.]
+INFO:__main__:Episode 36: Profit=13500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=8500.00, Default Rate=0.286, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [252. 212. 251.], Betas: [6214. 6167. 6122.]
+INFO:__main__:Episode 37: Profit=8500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6500.00, Default Rate=0.314, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [254. 214. 253.], Betas: [6406. 6329. 6268.]
+INFO:__main__:Episode 38: Profit=6500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=9500.00, Default Rate=0.330, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [257. 215. 254.], Betas: [6570. 6496. 6437.]
+INFO:__main__:Episode 39: Profit=9500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.344, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [257. 218. 255.], Betas: [6735. 6659. 6609.]
+INFO:__main__:Episode 40: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=9500.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [261. 221. 258.], Betas: [6905. 6806. 6792.]
+INFO:__main__:Episode 41: Profit=9500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=12000.00, Default Rate=0.312, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [261. 223. 259.], Betas: [7083. 6970. 6950.]
+INFO:__main__:Episode 42: Profit=12000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7000.00, Default Rate=0.332, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [262. 225. 260.], Betas: [7246. 7141. 7116.]
+INFO:__main__:Episode 43: Profit=7000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=14000.00, Default Rate=0.342, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [264. 227. 262.], Betas: [7407. 7330. 7266.]
+INFO:__main__:Episode 44: Profit=14000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.324, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [266. 228. 265.], Betas: [7587. 7484. 7432.]
+INFO:__main__:Episode 45: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [268. 229. 267.], Betas: [7747. 7663. 7593.]
+INFO:__main__:Episode 46: Profit=6000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.316, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [268. 230. 267.], Betas: [7920. 7823. 7760.]
+INFO:__main__:Episode 47: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.288, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [274. 231. 269.], Betas: [8073. 7995. 7935.]
+INFO:__main__:Episode 48: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6000.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [274. 231. 269.], Betas: [8240. 8170. 8093.]
+INFO:__main__:Episode 49: Profit=6000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=1000.00, Default Rate=0.316, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [275. 231. 270.], Betas: [8388. 8349. 8266.]
+INFO:__main__:Episode 50: Profit=1000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=-500.00, Default Rate=0.334, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [275. 232. 270.], Betas: [8551. 8525. 8427.]
+INFO:__main__:Episode 51: Profit=-500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=9000.00, Default Rate=0.304, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [277. 232. 270.], Betas: [8689. 8718. 8596.]
+INFO:__main__:Episode 52: Profit=9000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=2500.00, Default Rate=0.296, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [278. 234. 273.], Betas: [8861. 8869. 8773.]
+INFO:__main__:Episode 53: Profit=2500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.326, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [278. 235. 274.], Betas: [9013. 9052. 8938.]
+INFO:__main__:Episode 54: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7500.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [278. 235. 274.], Betas: [9202. 9216. 9085.]
+INFO:__main__:Episode 55: Profit=7500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.306, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [279. 236. 274.], Betas: [9366. 9382. 9255.]
+INFO:__main__:Episode 56: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6000.00, Default Rate=0.326, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [280. 236. 275.], Betas: [9550. 9549. 9404.]
+INFO:__main__:Episode 57: Profit=6000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4500.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [282. 238. 275.], Betas: [9729. 9711. 9563.]
+INFO:__main__:Episode 58: Profit=4500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.326, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [282. 238. 275.], Betas: [9883. 9874. 9746.]
+INFO:__main__:Episode 59: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [285. 240. 276.], Betas: [10038. 10043.  9922.]
+INFO:__main__:Episode 60: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=2000.00, Default Rate=0.302, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [285. 242. 277.], Betas: [10200. 10199. 10104.]
+INFO:__main__:Episode 61: Profit=2000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [286. 243. 281.], Betas: [10344. 10363. 10296.]
+INFO:__main__:Episode 62: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7000.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [289. 243. 284.], Betas: [10512. 10528. 10463.]
+INFO:__main__:Episode 63: Profit=7000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3000.00, Default Rate=0.338, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [289. 244. 285.], Betas: [10670. 10683. 10650.]
+INFO:__main__:Episode 64: Profit=3000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [289. 245. 287.], Betas: [10833. 10848. 10822.]
+INFO:__main__:Episode 65: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.296, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [290. 248. 289.], Betas: [10999. 11015. 10989.]
+INFO:__main__:Episode 66: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=500.00, Default Rate=0.314, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [290. 250. 289.], Betas: [11159. 11182. 11162.]
+INFO:__main__:Episode 67: Profit=500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7500.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [290. 250. 291.], Betas: [11335. 11348. 11320.]
+INFO:__main__:Episode 68: Profit=7500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4500.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [292. 253. 292.], Betas: [11506. 11502. 11495.]
+INFO:__main__:Episode 69: Profit=4500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4500.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [293. 254. 295.], Betas: [11656. 11675. 11672.]
+INFO:__main__:Episode 70: Profit=4500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=9500.00, Default Rate=0.304, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [294. 255. 296.], Betas: [11823. 11828. 11852.]
+INFO:__main__:Episode 71: Profit=9500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=500.00, Default Rate=0.322, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [295. 256. 297.], Betas: [11994. 11993. 12016.]
+INFO:__main__:Episode 72: Profit=500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [297. 257. 298.], Betas: [12167. 12172. 12164.]
+INFO:__main__:Episode 73: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6000.00, Default Rate=0.312, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [297. 258. 299.], Betas: [12344. 12335. 12324.]
+INFO:__main__:Episode 74: Profit=6000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=1000.00, Default Rate=0.328, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [298. 259. 301.], Betas: [12509. 12491. 12503.]
+INFO:__main__:Episode 75: Profit=1000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=10500.00, Default Rate=0.322, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [299. 259. 302.], Betas: [12680. 12654. 12669.]
+INFO:__main__:Episode 76: Profit=10500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3000.00, Default Rate=0.326, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [301. 260. 303.], Betas: [12847. 12808. 12848.]
+INFO:__main__:Episode 77: Profit=3000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4500.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [302. 262. 305.], Betas: [13000. 12970. 13033.]
+INFO:__main__:Episode 78: Profit=4500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.338, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [303. 262. 306.], Betas: [13173. 13142. 13188.]
+INFO:__main__:Episode 79: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7000.00, Default Rate=0.330, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [305. 262. 308.], Betas: [13350. 13311. 13342.]
+INFO:__main__:Episode 80: Profit=7000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [308. 263. 309.], Betas: [13500. 13482. 13521.]
+INFO:__main__:Episode 81: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=7500.00, Default Rate=0.262, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [313. 266. 311.], Betas: [13670. 13645. 13688.]
+INFO:__main__:Episode 82: Profit=7500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=500.00, Default Rate=0.294, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [316. 267. 311.], Betas: [13830. 13815. 13858.]
+INFO:__main__:Episode 83: Profit=500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=1500.00, Default Rate=0.312, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [316. 267. 311.], Betas: [13999. 13977. 14027.]
+INFO:__main__:Episode 84: Profit=1500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5000.00, Default Rate=0.318, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [316. 267. 311.], Betas: [14186. 14141. 14176.]
+INFO:__main__:Episode 85: Profit=5000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=1000.00, Default Rate=0.344, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [317. 268. 311.], Betas: [14369. 14303. 14331.]
+INFO:__main__:Episode 86: Profit=1000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=8000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [318. 271. 311.], Betas: [14547. 14468. 14488.]
+INFO:__main__:Episode 87: Profit=8000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=0.00, Default Rate=0.334, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [318. 271. 312.], Betas: [14705. 14643. 14655.]
+INFO:__main__:Episode 88: Profit=0.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.304, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [319. 271. 312.], Betas: [14885. 14803. 14815.]
+INFO:__main__:Episode 89: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3000.00, Default Rate=0.308, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [320. 273. 312.], Betas: [15061. 14973. 14969.]
+INFO:__main__:Episode 90: Profit=3000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [321. 273. 313.], Betas: [15234. 15125. 15144.]
+INFO:__main__:Episode 91: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=2000.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [323. 276. 315.], Betas: [15396. 15284. 15323.]
+INFO:__main__:Episode 92: Profit=2000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.300, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [328. 278. 316.], Betas: [15556. 15457. 15490.]
+INFO:__main__:Episode 93: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=4000.00, Default Rate=0.310, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [329. 278. 316.], Betas: [15712. 15623. 15668.]
+INFO:__main__:Episode 94: Profit=4000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=6000.00, Default Rate=0.314, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [330. 278. 318.], Betas: [15872. 15785. 15846.]
+INFO:__main__:Episode 95: Profit=6000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=1000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [330. 278. 318.], Betas: [16036. 15947. 16020.]
+INFO:__main__:Episode 96: Profit=1000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=5500.00, Default Rate=0.306, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [332. 279. 319.], Betas: [16217. 16102. 16184.]
+INFO:__main__:Episode 97: Profit=5500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=2000.00, Default Rate=0.320, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [332. 281. 319.], Betas: [16381. 16271. 16351.]
+INFO:__main__:Episode 98: Profit=2000.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3500.00, Default Rate=0.292, Feasible=True
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [333. 282. 322.], Betas: [16548. 16432. 16523.]
+INFO:__main__:Episode 99: Profit=3500.00
+INFO:src.simulator.credit_sim:Sim results: Profit=3000.00, Default Rate=0.354, Feasible=False
+INFO:src.rl.bandit_optimizer:Policy updated. Alphas: [334. 282. 322.], Betas: [16731. 16572. 16700.]
+INFO:__main__:Episode 100: Profit=3000.00
+/Users/rohitmannur/Desktop/Amex 2/src/main.py:53: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+INFO:__main__:RL plot saved as profit_curve.png
+INFO:src.simulator.credit_sim:Sim results: Profit=4500.00, Default Rate=0.288, Feasible=True
+INFO:__main__:Final RL Policy: Profit=4500.00, Default Rate=0.288

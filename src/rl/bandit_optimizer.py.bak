@@ -1,0 +1,53 @@
+import logging
+import numpy as np
+from typing import Dict
+from src.policies.base_policy import BasePolicy
+from scipy.stats import beta
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class ThompsonSamplingPolicy(BasePolicy):
+    """RL Policy: Thompson Sampling Multi-Armed Bandit for approve/deny decisions.
+    Arms: Approve low-risk, approve high-risk, deny.
+    Optimizes for profit under risk constraint (Bayesian uncertainty).
+    """
+    
+    def __init__(self, n_arms: int = 3, alpha_prior: float = 1.0, beta_prior: float = 1.0):
+        super().__init__()
+        self.n_arms = n_arms  # 0: deny, 1: approve low, 2: approve high
+        self.alpha = np.full(n_arms, alpha_prior)  # Success priors
+        self.beta = np.full(n_arms, beta_prior)    # Failure priors
+        self.risk_classifier = None  # Simple threshold for low/high risk
+    
+    def decide(self, X: np.ndarray) -> np.ndarray:
+        """Sample arm for each customer (based on risk)."""
+        if self.risk_classifier is None:
+            # Simple risk split: first feature as proxy
+            self.risk_classifier = lambda x: (x[:, 0] > 0).astype(int)  # High risk if feat0 >0
+        
+        risk = self.risk_classifier(X)
+        decisions = np.zeros(len(X))
+        
+        for i, r in enumerate(risk):
+            if r == 0:  # Low risk: sample between approve low or deny
+                arm_samples = beta.rvs(self.alpha[[0, 1]], self.beta[[0, 1]])
+                decisions[i] = np.argmax(arm_samples)  # 0=deny, 1=approve
+            else:  # High risk: sample between approve high or deny
+                arm_samples = beta.rvs(self.alpha[[0, 2]], self.beta[[0, 2]])
+                decisions[i] = np.argmax(arm_samples) if np.argmax(arm_samples) == 2 else 0  # 0=deny, 2=approve high (map to 1)
+        
+        return decisions  # All approve=1, deny=0
+
+    def update(self, rewards: np.ndarray, arms_pulled: np.ndarray, feasible: bool = True) -> None:
+        """Update posteriors with rewards (profit as success proxy)."""
+        if not feasible:
+            rewards = rewards.astype(np.float64) * 0.5
+        if not feasible:
+            rewards *= -2    if not feasible:
+        rewards *= -2        for arm, reward in zip(arms_pulled, rewards):
+            if reward > 0:  # Success
+                self.alpha[arm] += 1
+            self.beta[arm] += 1
+        logger.info(f"Policy updated. Alphas: {self.alpha}, Betas: {self.beta}")
+
