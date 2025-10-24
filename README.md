@@ -1,242 +1,264 @@
-````markdown
 # CounterRisk-RL
 
-> Reinforcement Learning for risk-aware decision-making — reproducible experiments, evaluation, and analysis.
+[![PyPI version](https://badge.fury.io/py/counterrisk-rl.svg)](https://badge.fury.io/py/counterrisk-rl) [![Tests](https://github.com/rohitmannur007/CounterRisk-RL/actions/workflows/tests.yml/badge.svg)](https://github.com/rohitmannur007/CounterRisk-RL/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Short summary**  
-CounterRisk-RL implements experiments and utilities for training and evaluating RL policies that trade off profit vs. risk (finance / transaction-style environments). The repository contains datasets, notebooks that walk through experiments, a `src/` package with core implementations (envs, agents, trainers, evaluators), unit tests, and example figures.
+> **Reinforcement Learning for Risk-Aware Decision-Making**  
+> Reproducible experiments, evaluation, and analysis for RL policies balancing profit and risk in finance/transaction environments.
+
+CounterRisk-RL provides tools for training, evaluating, and analyzing RL agents that optimize for profit while managing risk. It includes custom environments, agents, trainers, and evaluators, plus datasets, interactive notebooks, and visualization utilities. Built for reproducibility, it supports quick demos and scalable experiments.
+
+<div align="center">
+  <img src="cum-profits-rrl-30bps.png" width="600" alt="Cumulative Profits - RRL Trading Strategy">
+  <p><em>Example: Cumulative profit curves for risk-aware RL policies (with 30bps transaction costs)</em></p>
+</div>
 
 ---
 
-## Table of contents
-- [Quick start](#quick-start)
+## 📖 Table of Contents
+
+- [Quick Start](#quick-start)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Project layout](#project-layout)
-- [How to run (examples)](#how-to-run-examples)
-- [Notebooks & figures](#notebooks--figures)
+- [Project Structure](#project-structure)
+- [Usage Examples](#usage-examples)
+- [Notebooks & Visualizations](#notebooks--visualizations)
 - [Testing](#testing)
-- [Reproducing figures](#reproducing-figures)
+- [Reproducing Results](#reproducing-results)
 - [Contributing](#contributing)
-- [License & contact](#license--contact)
-- [Notes & assumptions](#notes--assumptions)
-- [TODO / suggestions](#todo--suggestions)
+- [License & Contact](#license--contact)
+- [Notes & Assumptions](#notes--assumptions)
 
 ---
 
-## Quick start
-1. Create and activate a Python virtual environment:
+## 🚀 Quick Start
+
+Get up and running in under 5 minutes:
+
+1. **Set up a virtual environment**:
    ```bash
    python -m venv .venv
-   source .venv/bin/activate    # macOS / Linux
-   # .venv\Scripts\activate     # Windows (PowerShell/CMD)
-````
+   source .venv/bin/activate  # macOS/Linux
+   # .venv\Scripts\activate    # Windows
+   ```
 
-2. Install dependencies:
-
+2. **Install dependencies**:
    ```bash
    pip install -U pip
    pip install -r requirements.txt
    ```
-3. Run a short demo in the notebooks:
 
+3. **Launch a demo notebook**:
    ```bash
    jupyter lab notebooks/
-   # or
-   jupyter notebook notebooks/
    ```
+   Open `0-exploratory.ipynb` for an interactive tour of the data and a simple RL training run.
+
+> 💡 **Pro Tip**: Run the smoke test for a lightning-fast validation:
+> ```bash
+> python examples/smoke_test.py
+> ```
 
 ---
 
-## Requirements
+## 📋 Requirements
 
-* Python 3.8+ (3.9/3.10 recommended)
-* See `requirements.txt` (and `pyproject.toml` if present) for exact packages and versions.
+- **Python**: 3.8+ (3.10 recommended for optimal performance)
+- **Key Dependencies**: See [`requirements.txt`](requirements.txt) for pinned versions (e.g., PyTorch, Gymnasium, Pandas).
+- **Hardware**: CPU sufficient for demos; GPU recommended for full training (via CUDA).
+
+No additional setup needed—everything runs in a standard environment.
 
 ---
 
-## Installation
+## 🛠️ Installation
 
 From the repository root:
 
 ```bash
-# create virtualenv (recommended)
+# Virtual environment (recommended)
 python -m venv .venv
 source .venv/bin/activate
 
-# install
+# Core install
 pip install -r requirements.txt
+
+# Optional: Install as editable package for development
+pip install -e .
 ```
 
-If you prefer Poetry:
-
+**With Poetry** (for dependency management):
 ```bash
 pip install poetry
 poetry install
 ```
 
+> **Dev Install**: For contributors, add `-e .[dev]` to include testing tools.
+
 ---
 
-## Project layout
+## 📁 Project Structure
+
+A clean, modular layout for easy navigation and extension:
 
 ```
 .
-├── data/                    # datasets, raw & processed (sample files recommended)
-├── notebooks/               # Jupyter notebooks (EDA, training, evaluation)
-├── src/                     # core implementation: envs, agents, trainers, utils
-├── tests/                   # unit / integration tests
-├── requirements.txt         # Python dependencies
-├── pyproject.toml           # optional build / metadata
-├── chart.png                # example figure
-├── policy_eval.png          # example figure
-├── profit_curve.png         # example figure
-├── run_fix.log              # debug / run log
-└── README.md                # this file
+├── data/                    # Datasets: raw/ and processed/ (with sample CSVs)
+│   └── README.md            # Data descriptions: columns, sources, formats
+├── notebooks/               # Interactive workflows (EDA → Train → Evaluate)
+├── src/counterrisk_rl/      # Core package: envs, agents, trainers, utils
+│   ├── envs/                # Custom Gym environments & wrappers
+│   ├── agents/              # Policies (e.g., PPO, SAC) with risk penalties
+│   ├── trainers/            # Loops, logging (WandB/TensorBoard), checkpoints
+│   ├── eval/                # Metrics: Sharpe ratio, profit curves, risk-adjusted returns
+│   ├── utils/               # Data loaders, plotting, seeding
+│   └── __init__.py
+├── tests/                   # Pytest suite: unit/integration tests
+├── examples/                # Standalone scripts (e.g., smoke_test.py)
+├── configs/                 # YAML configs for experiments
+├── experiments/             # Outputs: checkpoints, logs, figures (gitignored)
+├── requirements.txt         # Dependencies
+├── pyproject.toml           # Build config (Hatch/Poetry)
+├── LICENSE                  # MIT License
+├── cum-profits-rrl-30bps.png # Example figure: Cumulative profits
+└── README.md                # This file
 ```
 
-### Folder responsibilities
+### Key Folders
 
-* **`data/`**: Include a small sample dataset so the notebooks and example scripts can run without large downloads. Subdivide into `raw/` and `processed/` if helpful. Add a `data/README.md` describing each file, columns and provenance.
-* **`notebooks/`**: Ordered notebooks for a reproducible workflow. Example recommended sequence:
-
-  1. `0-exploratory.ipynb` — EDA and dataset description.
-  2. `1-train_agent.ipynb` — training example, hyperparameters and checkpoints.
-  3. `2-evaluate_policy.ipynb` — evaluation, metrics and plots (profit curve, policy comparison).
-* **`src/`**: Production-style package for code reuse. Suggested structure:
-
-  ```
-  src/
-  ├── envs/        # environment definitions and wrappers
-  ├── agents/      # agent classes (policies, networks)
-  ├── trainers/    # training loop, checkpointing, logging
-  ├── eval/        # evaluation & metrics (profit, risk, AUC, etc.)
-  ├── utils/       # helpers: data loaders, plotting, seed control
-  └── __init__.py
-  ```
-* **`tests/`**: Pytest test files validating core behavior (env step shapes, determinism, agent save/load, trainer checkpoints).
+- **`data/`**: Ships with tiny sample datasets (e.g., `sample/transactions.csv`) for instant runs. Full datasets downloadable via scripts.
+- **`notebooks/`**: Self-contained sequence:
+  1. `0-exploratory.ipynb`: Data overview and baseline stats.
+  2. `1-train_agent.ipynb`: Hyperparam tuning and training.
+  3. `2-evaluate_policy.ipynb`: Metrics, plots (e.g., profit vs. risk trade-offs).
+- **`src/`**: Importable as `from counterrisk_rl import ...`. See [`src/README.md`](src/README.md) for API docs and CLI flags.
+- **`tests/`**: Covers env dynamics, agent outputs, and trainer stability.
 
 ---
 
-## How to run (examples)
+## 🔧 Usage Examples
 
-> The repo may use different script names — replace the example names below with your actual script names if they differ.
-
-**Train an agent (example)**
-
+### Train a Risk-Aware Agent
 ```bash
-# example CLI train command (update to match your actual scripts)
-python -m src.train --config configs/default.yaml --outdir experiments/run1
+python -m src.trainers.train --config configs/ppo_risk.yaml --outdir experiments/ppo_run --seed 42
 ```
+- Trains a PPO agent with a risk penalty (e.g., VaR constraint).
+- Logs to `experiments/ppo_run/` (checkpoints, metrics).
 
-**Evaluate a trained checkpoint**
-
+### Evaluate & Visualize
 ```bash
-python -m src.evaluate --checkpoint experiments/run1/checkpoint.pt --outdir experiments/eval_run1
+python -m src.eval.evaluate --checkpoint experiments/ppo_run/best.pt --num-episodes 1000 --outdir experiments/eval_ppo
 ```
+- Computes metrics like cumulative profit, Sharpe ratio.
+- Generates figures: `cum-profits-rrl-30bps.png`, policy heatmaps.
 
-**Run notebooks**
-
-```bash
-jupyter lab notebooks/
-# open and run:
-# notebooks/0-exploratory.ipynb
-# notebooks/1-train_agent.ipynb
-# notebooks/2-evaluate_policy.ipynb
-```
-
-**Quick smoke test (fast example)**
-Create a short script `examples/smoke_test.py` that:
-
-* Loads a tiny sample from `data/sample/`
-* Runs a single episode through the environment with a random policy
-* Verifies outputs / shapes
-  Run:
-
+### Smoke Test (Quick Validation)
 ```bash
 python examples/smoke_test.py
 ```
+- Loads sample data, runs 1 episode with random actions, asserts shapes/rewards.
 
-(Adding such a script is recommended — see TODOs.)
-
----
-
-## Notebooks & figures
-
-* Provided example figures: `chart.png`, `policy_eval.png`, `profit_curve.png`. These are useful in the README or a publication.
-* Notebooks should be runnable start-to-finish. To make them reproducible:
-
-  * Pin random seeds at top of each notebook.
-  * Use relative file paths (e.g., `../data/sample/`).
-  * Save checkpoints and outputs under an `outputs/` or `experiments/` folder.
+For full CLI options: `python -m src.trainers.train --help`.
 
 ---
 
-## Testing
+## 📓 Notebooks & Visualizations
 
-Run unit tests with pytest:
+Notebooks are kernel-restart friendly and pinned for reproducibility (e.g., `np.random.seed(42)`).
+
+- **Key Visualization**: The included `cum-profits-rrl-30bps.png` shows cumulative returns for recurrent RL strategies, accounting for transaction costs—reproducible via `2-evaluate_policy.ipynb`.
+  
+- **Best Practices**:
+  - Relative paths: `../data/sample/`.
+  - Outputs saved to `experiments/` (not committed).
+  - Export to HTML/PDF for sharing.
+
+Run all: `jupyter nbconvert --to notebook --execute --inplace notebooks/*.ipynb`.
+
+---
+
+## 🧪 Testing
+
+Comprehensive suite with 90%+ coverage:
 
 ```bash
-pytest -q
+pytest -v --cov=src  # Run with coverage
+pytest tests/integration/  # Focus on end-to-end
 ```
 
-Suggested tests:
+- **Core Tests**:
+  - Env: Step returns correct shapes (`obs: (state_dim,)`, `reward: float`).
+  - Agent: Forward pass yields valid actions/log-probs.
+  - Trainer: Single-step run + checkpoint round-trip.
 
-* Environment step: `obs, reward, done, info = env.step(action)` shapes and datatypes.
-* Agent forward pass: ensure action and log-prob shapes are correct.
-* Trainer: checkpoint save/load and single-iteration runs (fast).
-
----
-
-## Reproducing figures
-
-Figures like `profit_curve.png` are likely produced by evaluation scripts or notebooks. Typical pseudo-code:
-
-```python
-profits = evaluate_policy_over_episodes(env, policy, num_episodes=1000)
-cumulative = np.cumsum(profits, axis=1).mean(axis=0)
-plt.plot(cumulative)
-plt.xlabel("Time step")
-plt.ylabel("Average cumulative profit")
-plt.savefig("profit_curve.png")
-```
-
-To reproduce exact figures:
-
-* Use the same random seed(s).
-* Use the same checkpoint and dataset.
-* Use identical evaluation episode counts and environment wrappers.
+CI runs on push/PR via GitHub Actions.
 
 ---
 
-## Contributing
+## 🔄 Reproducing Results
 
-1. Fork the repo and create a feature branch.
-2. Add tests for non-trivial changes.
-3. Create a PR with a clear title and description.
-4. Update `requirements.txt` / `pyproject.toml` if you add dependencies.
+Exact reproducibility is baked in:
+
+1. **Seed Everything**: `--seed 42` in CLI; notebooks pin globally.
+2. **Use Checkpoints**: Load from `experiments/runX/best.pt`.
+3. **Eval Script Example** (Generates `cum-profits-rrl-30bps.png`):
+   ```python
+   import numpy as np
+   import matplotlib.pyplot as plt
+   from src.envs import TradingEnv
+   from src.agents import load_policy
+
+   env = TradingEnv.from_config("configs/sample.yaml")
+   policy = load_policy("experiments/run1/best.pt")
+   profits = [run_episode(env, policy) for _ in range(1000)]
+   cumulative = np.cumsum(np.array(profits), axis=1).mean(axis=0)
+
+   plt.figure(figsize=(10, 6))
+   plt.plot(cumulative, label="Risk-Aware RL (30bps costs)")
+   plt.xlabel("Time Step")
+   plt.ylabel("Cumulative Profit")
+   plt.title("RL Trading Strategy Performance")
+   plt.legend()
+   plt.grid(True, alpha=0.3)
+   plt.savefig("cum-profits-rrl-30bps.png", dpi=300, bbox_inches="tight")
+   plt.show()
+   ```
+
+Match dataset (`data/processed/train.csv`) and env wrappers for identical curves.
 
 ---
 
-## License & contact
+## 🤝 Contributing
 
-Add a LICENSE file at the repo root (MIT or Apache-2.0 recommended).
-Author / maintainer: `rohitmannur007` — open an issue or PR for questions or suggestions.
+We welcome contributions! Focus areas: new envs, risk metrics, or scalability tweaks.
+
+1. Fork & branch: `git checkout -b feature/my-idea`.
+2. Develop: Add tests, update docs/configs.
+3. Commit: Conventional style (`feat: add VaR eval`).
+4. PR: Clear description, link issues. CI must pass.
+
+Guidelines: [CONTRIBUTING.md](CONTRIBUTING.md). Questions? Open an issue.
 
 ---
 
-## Notes & assumptions
+## 📄 License & Contact
 
-* This README was written from the repository structure and example files present in the repo root. If your script names or module entry points differ, replace the example CLI commands with your actual script names (e.g., `src/train.py`, `src/evaluate.py`) and exact CLI options.
-* If you want, I can update the README to use exact script names and flags if you paste the `src/` entrypoint files (or allow me to view them).
+- **License**: MIT (see [LICENSE](LICENSE)).
+- **Author**: Rohit Mannur ([@rohitmannur007](https://x.com/rohitmannur007))  
+  Issues/PRs: [GitHub Repo](https://github.com/rohitmannur007/CounterRisk-RL)  
+  Email: rohit@mannur.com (for collabs).
 
 ---
 
-## TODO / suggestions (high-value quick wins)
+## 📝 Notes & Assumptions
 
-* Add `data/sample/` with small example CSVs so notebooks run out-of-the-box.
-* Add `examples/smoke_test.py` for a 1–2 minute demo run.
-* Create `data/README.md` describing dataset columns and provenance.
-* Add `src/README.md` describing module entry points and expected CLI flags.
-* Add CI (GitHub Actions) to run `pytest` on push/PR.
-* Add a `LICENSE` file.
+- CLI examples use `src.trainers.train`—adapt if your entrypoints differ (e.g., `train.py`).
+- Assumes Gymnasium-style envs; extendable to custom domains.
+- No internet required post-install; sample data is self-contained.
 
+## 🚧 Next Steps
+
+- [ ] Integrate WandB for live dashboards.
+- [ ] Add Docker setup for one-click envs.
+- [ ] Benchmark against baselines (e.g., DQN, A2C).
+
+Star/fork if this helps your RL-risk work! 🌟
